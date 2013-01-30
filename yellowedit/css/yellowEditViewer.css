@@ -1,0 +1,15 @@
+
+/* CANVAS
+ * compensate for toolbar offset in edit mode.
+ */
+#canvas							{ position: relative; top: -110px; }
+
+.nodeContainer					{ z-index: 1 !important; cursor: pointer; }
+.nodeContainer svg a path,
+.nodeContainer svg path			{ cursor: pointer !important; }
+
+.htmlContent					{ height: 34px; left: 0; line-height: normal; margin: 8px; overflow: hidden; padding: 5px; position: absolute; text-align: left; top: 0; width: 84px; }
+
+
+.nodeContainer.swimlane svg,
+.nodeContainer.swimlane			{ width: 100% }
