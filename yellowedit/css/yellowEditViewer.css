@@ -2,7 +2,7 @@
 /* CANVAS
  * compensate for toolbar offset in edit mode.
  */
-#canvas							{ position: relative; top: -110px; }
+#canvas							{ position: relative; top: -135px; }
 
 .nodeContainer					{ z-index: 1 !important; cursor: pointer; }
 .nodeContainer svg a path,
