@@ -348,7 +348,7 @@ span.trash:hover{
 
 /* ADDED 28. jan 2013 */
 
-#snapper{ display:block; position:absolute; left:3px; top:45px; width:46px; z-index:9999; height:43px; }
+#snapper{ display:block; position:fixed; left:3px; top:45px; width:46px; z-index:9999; height:43px; }
 #snapper.snap1{ background-image:url(../../gfx/yellow/snap1.png); }
 #snapper.snap2{ background-image:url(../../gfx/yellow/snap2.png); }
 #snapper.snap3{ background-image:url(../../gfx/yellow/snap3.png); }
@@ -356,7 +356,7 @@ span.trash:hover{
 #snapper.snap2:hover{ background-image:url(../../gfx/yellow/snap2_over.png); }
 #snapper.snap3:hover{ background-image:url(../../gfx/yellow/snap3_over.png); }
 
-#yeduplo{ display: block; width:46px; height:43px; position:absolute; top:48px; left:60px; z-index:9999; background-image:url(../../gfx/yellow/duplicate.png);
+#yeduplo{ display: block; width:46px; height:43px; position:fixed; top:48px; left:60px; z-index:9999; background-image:url(../../gfx/yellow/duplicate.png);
 }
 #yeduplo:hover{ background-image:url(../../gfx/yellow/duplicate_over.png);
 }
