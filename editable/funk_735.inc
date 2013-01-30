@@ -64,23 +64,23 @@
 						<input id="colorPickerValue" type="hidden" name="colorpicker" value="" />
 						<span id="yepalette" style="display:none"><?
 				
-							//1stLine: Bright, 2ndLine: solid  
-							$colors=array(
-							"FFFFFF","e9dada","dae3e8","e2d7e3","e9e8da","e9e1da","d4dfd7", "break",
-							"000000","f20000","00a0fc", "c500d7", "fff600", "ff7800","00b92c");
-							
-							foreach($colors as $c){
-								if($c=="break"){
-									//echo "<br />";  
-								}else{
-								?>
-									<a class="instantColorPicker" style="background-color:#<?=$c?>" title="<?=xpr(1042)?>"></a>
-								<?
-								}  
-							}               
-							               
-							?>
-							
+						//1stLine: Bright, 2ndLine: solid, 3rd: Transparent
+              					$colors=array(
+				                "FFFFFF","e9dada","dae3e8","e2d7e3","e9e8da","e9e1da","d4dfd7", "break",
+              					"000000","f20000","00a0fc", "c500d7", "fff600", "ff7800","00b92c","'transparent'");
+                
+          					foreach($colors as $c){
+	    						if($c=="break"){
+					        	}else{ ?><a <?
+      					       			//Case: transparent
+      					 			if($c=="'transparent'"){
+            				  			      echo ' id="ye_transcolor"  title="Gjennomsiktig" ';
+	               						}
+              						 	else{ ?> title="<?=xpr(1042)?>" <?  
+             					     		}
+                						?> class="instantColorPicker" style="background-color:#<?=$c?>"></a><?
+                					  }   
+						}  ?>	
 						</span>
 					</span>
 				  
