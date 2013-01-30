@@ -221,6 +221,23 @@ textarea.expandtxta:focus{
 	border:1px solid #FFF;
 }
 
+/* TRANSPARENT added 30 jan 2013 */
+#yepalette #ye_transcolor{
+	width:103px;
+	height:15px;
+	background-image:url(../../gfx/yellow/trans.png);
+	border:1px solid #333;
+}
+
+#yepalette #ye_transcolor:hover{
+	width:103px;
+	height:15px;
+	background-image:url(../../gfx/yellow/trans.png);
+	border:1px solid #900;
+}
+
+/* END ADD */
+
 #ywbwsel{
 	display:inline-block;
 }
