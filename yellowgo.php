@@ -125,7 +125,7 @@ if($rad["flowchart"]==""){
 				
 				//displayOptions
 				endpoint : {
-					radius	 			: 6,
+					radius	 			: 3,
 					fill				: '#84adc2',
 					cssClass			: 'endpointLos',
 					hoverOutlineWidth	: 1,							
