@@ -87,8 +87,8 @@ if($rad["flowchart"]==""){
 					url				: 'ajaxsave.php?modul=adoc&doc=<?=intval($_GET["doc"])?>&id=<?=intval($_GET["id"])?>&type=saveflow',
 					success			: function(response){
 						if(response=='LAGRA'){
-					     	alert('OK!');
-								//window.top.location='?modul=adoc&item=<?=$_GET["doc"]?>&acopy=<?=$_GET["v"]?>';
+					     	//alert('OK!');
+							window.top.location='?modul=adoc&item=<?=$_GET["doc"]?>&acopy=<?=$_GET["v"]?>';
 						}else{
 							alert ('Ein feil oppstod');	
 						}
