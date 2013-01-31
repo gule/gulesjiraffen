@@ -379,3 +379,12 @@ span.trash:hover{
 }
 
 /* END ADDED 28. jan 2013 */
+
+
+/* ADDED 31. jan 2013 */
+#ye_moveup{  background-image:url(../../gfx/yellow/moveup.png); margin-bottom:2px;	 }
+#ye_moveup:hover{  background-image:url(../../gfx/yellow/moveup_over.png);	 }
+
+#ye_movedown{  height:27px; background-image:url(../../gfx/yellow/movedown.png); }
+#ye_movedown:hover{  background-image:url(../../gfx/yellow/movedown_over.png);	 }
+/* END ADDED 31. jan 2013 */
