@@ -225,7 +225,12 @@ if($rad["flowchart"]==""){
         
 		<a id="snapper" class="snap1" href="#" title="Magnetisme"></a>	
 		<a id="yeduplo" href="#" title="Kopier element"></a>			
-					
+		
+		<span id="ye_updown">
+    		    <a href="#" id="ye_moveup" title="Flytt øverst"></a>
+       		    <a href="#" id="ye_movedown" title="Flytt nederst"></a>
+        	</span>	
+        	
 		<div class="toolBoxContainer shapes">
 			<ul id="shapes">
 				<li id="rect"><span class="hidden">Firkant</span></li>
