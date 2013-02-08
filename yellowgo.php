@@ -24,6 +24,9 @@ if($rad["flowchart"]==""){
 						
 						deleteContainer		: '.deleteContainer',
 						duplicateContainer	: '#yeduplo',
+						containerToTop		: '#ye_moveup',
+						containerToBottom	: '#ye_movedown',
+						duplicateContainer	: '#yeduplo',
 						instantColorPicker	: function(element){
 							$('.instantColorPicker').unbind();
 							$('.instantColorPicker').click(function(e){
@@ -227,9 +230,9 @@ if($rad["flowchart"]==""){
 		<a id="yeduplo" href="#" title="Kopier element"></a>			
 		
 		<span id="ye_updown">
-    		    <a href="#" id="ye_moveup" title="Flytt øverst"></a>
-       		    <a href="#" id="ye_movedown" title="Flytt nederst"></a>
-        	</span>	
+			<a href="#" id="ye_moveup" title="Flytt øverst"></a>
+			<a href="#" id="ye_movedown" title="Flytt nederst"></a>
+		</span>	
         	
 		<div class="toolBoxContainer shapes">
 			<ul id="shapes">

@@ -64,6 +64,7 @@ var yellowEdit = {
 		// listeners
 		this.editor.menu.deleteContainerListener();
 		this.editor.menu.duplicateContainerListener();
+		this.editor.menu.reorderElementListener();
 		
 		return this;
 	},			
@@ -368,8 +369,14 @@ var yellowEdit = {
 					}
 				});
 			},
-			reorderLementListener : function(){
-				
+			reorderElementListener : function(){
+				var element = yellowEdit.editor.selectedContainers[0];
+				$(yellowEdit.editorOptions.elements.inspector.containerToBottom).click(function(){
+					yellowEdit.editor.menu.reorderElement(element.attr('id'), 'bottom');
+				});
+				$(yellowEdit.editorOptions.elements.inspector.containerToTop).click(function(){
+					yellowEdit.editor.menu.reorderElement(element.attr('id'), 'top');
+				});
 			},
 			reorderElement : function (elementId, order){
 				var elements = $('#canvas').children();
