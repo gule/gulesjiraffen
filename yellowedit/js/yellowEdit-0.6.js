@@ -368,6 +368,47 @@ var yellowEdit = {
 					}
 				});
 			},
+			reorderLementListener : function(){
+				
+			},
+			reorderElement : function (elementId, order){
+				var elements = $('#canvas').children();
+				$.each(elements, function(index, value){
+					if($(value).attr('id') == elementId){
+						switch(order){
+							case 'top':
+								var elementGroup = $(value);
+								$.merge(elementGroup, $(value).nextUntil('._jsPlumb_connector').slice(0,4));
+								elementGroup.detach().appendTo($('#canvas'));
+								
+								$.each(yellowEdit.dataModel.containers, function(index, value){
+									if(value.attr('id') == elementId){
+										var el = yellowEdit.dataModel.containers.splice(index,1);
+										yellowEdit.dataModel.containers.push(el[0]);
+										
+										return false;
+									}
+								});									
+							break;
+							case 'bottom':
+								var elementGroup = $(value);
+								$.merge(elementGroup, $(value).nextUntil('._jsPlumb_connector').slice(0,4));
+								elementGroup.detach().prependTo($('#canvas'));
+								
+								$.each(yellowEdit.dataModel.containers, function(index, value){
+									if(value.attr('id') == elementId){
+										var el = yellowEdit.dataModel.containers.splice(index,1);
+										yellowEdit.dataModel.containers.unshift(el[0]);
+										
+										return false;
+									}
+								});									
+
+							break;
+						}
+					}
+				});
+			},
 			build		: function(){
 				
 				var connections = [];
@@ -439,6 +480,17 @@ var yellowEdit = {
 					});
 					yellowEdit.dataModel.reloadConnections();
 				});
+				
+				// etter ferdig lasta
+			
+				
+				//reorder('jsPlumb_1_134', 'bottom');
+				
+				
+				
+				
+				
+				
 			},
 			hide : function(){
 				yellowEdit.editorOptions.elements.menu.hide();

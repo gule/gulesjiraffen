@@ -85,6 +85,9 @@ margin-right: 10px;}
 
 .endpointHover{
 	cursor: pointer;
+	/*height: 12px !important;
+    margin: -3px 0 0 -4px;
+    width: 12px !important;*/
 }
 
 
@@ -102,7 +105,7 @@ margin-right: 10px;}
 
 
 .endpointLos{
-	background-image:url(../../gfx/flytkart/punkt.png);
+	/*background :url(../../gfx/flytkart/punkt.png) 0 0 no-repeat;*/
 }
 
 
