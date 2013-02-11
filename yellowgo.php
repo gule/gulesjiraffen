@@ -91,7 +91,7 @@ if($rad["flowchart"]==""){
 					success			: function(response){
 						if(response=='LAGRA'){
 					     	//alert('OK!');
-							window.top.location='?modul=adoc&item=<?=$_GET["doc"]?>&acopy=<?=$_GET["v"]?>';
+							window.top.location='?modul=adoc&item=<?=$_GET["doc"]?>&acopy=<?=$_GET["id"]?>';
 						}else{
 							alert ('Ein feil oppstod');	
 						}
