@@ -385,6 +385,27 @@ span.trash:hover{
 
 
 /* ADDED 31. jan 2013 */
+
+
+#ye_updown{
+	display:block;
+	position:fixed;
+	left:106px;
+	width:41px;
+	top:44px;
+	z-index:9999;
+	border:0px solid #CCC;
+}
+
+#ye_updown a{
+	border:0px solid #CCC;
+	display:block;
+	width:41px;
+	height:23px;
+	background-repeat:no-repeat;
+
+}
+
 #ye_moveup{  background-image:url(../../gfx/yellow/moveup.png); margin-bottom:2px;	 }
 #ye_moveup:hover{  background-image:url(../../gfx/yellow/moveup_over.png);	 }
 
