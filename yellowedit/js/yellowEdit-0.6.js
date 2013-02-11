@@ -34,7 +34,7 @@ var yellowEdit = {
 	editorOptions	: {},
 	
 	init	: function(options, dataModel){
-		jsPlumb.setRenderMode(jsPlumb.CANVAS);
+		jsPlumb.setRenderMode(jsPlumb.SVG);
 		// initialize user settings
 		this.editorOptions	= options;
 		this.viewMode		= options.viewMode;
@@ -370,12 +370,18 @@ var yellowEdit = {
 				});
 			},
 			reorderElementListener : function(){
-				var element = yellowEdit.editor.selectedContainers[0];
+				
 				$(yellowEdit.editorOptions.elements.inspector.containerToBottom).click(function(){
-					yellowEdit.editor.menu.reorderElement(element.attr('id'), 'bottom');
+					var element = yellowEdit.editor.selectedContainers[0];
+					if(element !== undefined){
+						yellowEdit.editor.menu.reorderElement(element.attr('id'), 'bottom');
+					}
 				});
 				$(yellowEdit.editorOptions.elements.inspector.containerToTop).click(function(){
-					yellowEdit.editor.menu.reorderElement(element.attr('id'), 'top');
+					var element = yellowEdit.editor.selectedContainers[0];
+					if(element !== undefined){
+						yellowEdit.editor.menu.reorderElement(element.attr('id'), 'top');
+					}
 				});
 			},
 			reorderElement : function (elementId, order){
@@ -891,7 +897,7 @@ var yellowEdit = {
 	    	if(container.options.shape == 'swimlane'){
 	    		container.offset({left : 0, top : this.oy + dy});
 	    	}else{
-	    		container.offset({left : Math.round((this.ox + dx)/snapInterval)*snapInterval, top : Math.round((this.oy + dy)/snapInterval)*snapInterval});
+	    		container.css({left : Math.round((this.ox + dx)/snapInterval)*snapInterval, top : Math.round((this.oy + dy)/snapInterval)*snapInterval});
 	    	}
 	        jsPlumb.repaint(container);
 	    },

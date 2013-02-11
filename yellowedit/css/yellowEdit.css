@@ -76,7 +76,7 @@ margin-right: 10px;}
 .hide 	{	display:none; }
 ._jsPlumb_endpoint {z-index: 1; }
 ._jsPlumb_overlay {  padding: 2px 9px 2px 7px; background-color: rgba(255, 255, 255, 0.8); border: 1px solid #333333; }
-._jsPlumb_connector {cursor: pointer;}
+._jsPlumb_connector {cursor: pointer; z-index: 5;}
 
 /* OVERRIDES*/
 .navbar-inner{
