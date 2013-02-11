@@ -365,7 +365,10 @@ var yellowEdit = {
 				$(yellowEdit.editorOptions.elements.inspector.duplicateContainer).click(function(){
 					var element = yellowEdit.editor.selectedContainers[0];
 					if(element !== undefined){
-						yellowEdit.container(element.options.shape, element, true);
+						var container = new yellowEdit.container(element.options.shape, element, true);
+						yellowEdit.editor.selecterContainers = []; 		
+						yellowEdit.editor.selectedContainers.push(container);
+						container.trigger('click');
 					}
 				});
 			},
@@ -390,6 +393,9 @@ var yellowEdit = {
 					if($(value).attr('id') == elementId){
 						switch(order){
 							case 'top':
+								/*var conns = jsPlumb.getConnections({target: elementId});
+								$.merge(conns, jsPlumb.getConnections({source: elementId}));*/
+								
 								var elementGroup = $(value);
 								$.merge(elementGroup, $(value).nextUntil('._jsPlumb_connector').slice(0,4));
 								elementGroup.detach().appendTo($('#canvas'));
