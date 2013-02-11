@@ -21,7 +21,7 @@ body { background: url('../img/background.png'); }
 
 .toolBoxContainer{  padding-top: 5px;
 /* ADDED to the SNAP */
-padding-left:100px;
+padding-left:130px;
 
 /* border: 1px solid #AAAAAA; border-radius: 6px; box-shadow: 0 8px 16px #888888; background-color: #FDFDFD; */ background: url('../img/shapeBackground.png') repeat-x;}
 .toolBoxContainer.shapes {height: 65px; }
