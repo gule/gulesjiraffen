@@ -107,7 +107,7 @@ var yellowEdit = {
 				 	});
 					yellowEdit.editor.selecterContainers = []; 		
 					yellowEdit.editor.selectedContainers.push(container);
-					if(shapeType = 'htmlbox'){
+					if(shapeType == 'htmlbox'){
 						container.elements.html.trigger('focus');
 					}else{
 						container.trigger('click');
