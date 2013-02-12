@@ -43,18 +43,18 @@ margin-right: 10px;}
 .toolBoxContainer.shapes #rectvariant_1:hover { background: url("../img/shapes/5_over.png") no-repeat;}
 .toolBoxContainer.shapes #rectvariant_2 { background: url("../img/shapes/4.png") no-repeat;}
 .toolBoxContainer.shapes #rectvariant_2:hover { background: url("../img/shapes/4_over.png") no-repeat;}
-.toolBoxContainer.shapes #diamond { background: url("../img/shapes/8.png") no-repeat;  width:47px; background-position:-10px;}
+.toolBoxContainer.shapes #diamond 		{ background: url("../img/shapes/8.png") no-repeat;  width:47px; background-position:-10px;}
 .toolBoxContainer.shapes #diamond:hover { background: url("../img/shapes/8_over.png") no-repeat; width:47px;  background-position:-10px;}
-.toolBoxContainer.shapes #htmlbox { background: url("../img/shapes/9.png") no-repeat; width:45px; background-position:-10px; }
+.toolBoxContainer.shapes #htmlbox 		{ background: url("../img/shapes/9.png") no-repeat; width:45px; background-position:-10px; }
 .toolBoxContainer.shapes #htmlbox:hover { background: url("../img/shapes/9_over.png") no-repeat; width:45px;  background-position:-10px; }
-.toolBoxContainer.shapes #man { background: url("../img/shapes/10.png") no-repeat; width:45px; background-position:-10px; }
-.toolBoxContainer.shapes #man:hover { background: url("../img/shapes/10_over.png") no-repeat; width:45px;  background-position:-10px; }
-.toolBoxContainer.shapes #swimlane { background: url("../img/shapes/swim.png") no-repeat; width:45px; background-position:-10px; }
-.toolBoxContainer.shapes #swimlane:hover { background: url("../img/shapes/swim_over.png") no-repeat; width:45px;  background-position:-10px; }
+.toolBoxContainer.shapes #man 			{ background: url("../img/shapes/10.png") no-repeat; width:45px; background-position:-10px; }
+.toolBoxContainer.shapes #man:hover 	{ background: url("../img/shapes/10_over.png") no-repeat; width:45px;  background-position:-10px; }
+.toolBoxContainer.shapes #swimlane 		{ background: url("../img/shapes/swim.png") no-repeat; width:45px; background-position:-10px; }
+.toolBoxContainer.shapes #swimlane:hover{ background: url("../img/shapes/swim_over.png") no-repeat; width:45px;  background-position:-10px; }
 
-#inspectorContainer { position:absolute; top:200px; right: 50px;  }
-#inspectorContainer ul { list-style:none; margin-left: 0; }
-#inspectorContainer ul.nav-tabs a { background-color: #F5F5F5;  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;}
+#inspectorContainer 					{ position:absolute; top:200px; right: 50px;  }
+#inspectorContainer ul 					{ list-style:none; margin-left: 0; }
+#inspectorContainer ul.nav-tabs a 		{ background-color: #F5F5F5;  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;}
 #inspectorContainer ul.nav-tabs li.active a { background-color: #FDFDFD;}
 #inspectorContainer #inspector { 
 	min-height: 300px; 

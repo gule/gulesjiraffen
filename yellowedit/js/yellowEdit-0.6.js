@@ -107,7 +107,11 @@ var yellowEdit = {
 				 	});
 					yellowEdit.editor.selecterContainers = []; 		
 					yellowEdit.editor.selectedContainers.push(container);
-					container.trigger('click');
+					if(shapeType = 'htmlbox'){
+						container.elements.html.trigger('focus');
+					}else{
+						container.trigger('click');
+					}
 				}
 			});
 
@@ -608,16 +612,67 @@ var yellowEdit = {
 			        		'width' 	: params.initParams.options.htmlNodeWidth+'px',
 			        		'height' 	: params.initParams.options.htmlNodeHeight+'px'});
 						
+						function fixWord(str) {
+							str = str.replace(/MsoNormal/gi,"");
+							str = str.replace(/<\/?meta[^>]*>/gi,"");
+							str = str.replace(/<\/?xml[^>]*>/gi,"");
+							str = str.replace(/<\?xml[^>]*\/>/gi,"");
+							str = str.replace(/<!--(.*)-->/gi, "");
+							str = str.replace(/<!--(.*)>/gi, "");
+							str = str.replace(/<!(.*)-->/gi, "");
+							str = str.replace(/<w:[^>]*>(.*)<\/w:[^>]*>/gi,'');
+							str = str.replace(/<w:[^>]*\/>/gi,'');
+							str = str.replace(/<\/?w:[^>]*>/gi,"");
+							str = str.replace(/<m:[^>]*\/>/gi,'');
+							str = str.replace(/<m:[^>]>(.*)<\/m:[^>]*>/gi,'');
+							str = str.replace(/<o:[^>]*>(.*)<\/o:[^>]*>/gi,'');
+							str = str.replace(/<o:[^>]*\/>/gi,'');
+							str = str.replace(/<\/?m:[^>]*>/gi,"");
+							str = str.replace(/style=\"([^>]*)\"/gi,"");
+							str = str.replace(/style=\'([^>]*)\'/gi,"");
+							str = str.replace(/class=\"(.*)\"/gi,"");
+							str = str.replace(/class=\'(.*)\'/gi,"");
+							str = str.replace(/<b[^>]*>/gi,'<strong>');
+							str = str.replace(/<\/b[^>]*>/gi,'<\/strong>');
+							str = str.replace(/<p[^>]*>/gi,'<p>');
+							str = str.replace(/<\/p[^>]*>/gi,'<\/p>');
+							str = str.replace(/<span[^>]*>/gi,'');
+							str = str.replace(/<\/span[^>]*>/gi,'');
+							str = str.replace(/<st1:[^>]*>/gi,'');
+							str = str.replace(/<\/st1:[^>]*>/gi,'');
+							str = str.replace(/<font[^>]*>/gi,'');
+							str = str.replace(/<\/font[^>]*>/gi,'');
+							str = str.replace('  ','');
+							str = str.replace(/<strong><\/strong>/gi,'');
+							str = str.replace(/<p><\/p>/gi,'');
+							str = str.replace(/\/\*(.*)\*\//gi,'');
+							str = str.replace(/<!--/gi, "");
+							str = str.replace(/-->/gi, "");
+							str = str.replace(/<style[^>]*>[^<]*<\/style[^>]*>/gi,'');
+							function trim(str, chars) {return ltrim(rtrim(str, chars), chars);}
+							function ltrim(str, chars) {chars = chars || "\\s";return str.replace(new RegExp("^[" + chars + "]+", "g"), "");}
+							function rtrim(str, chars) {chars = chars || "\\s";return str.replace(new RegExp("[" + chars + "]+$", "g"), "");}
+
+							return str;
+						}
+						
+						
+						htmlNode.bind('paste', function(){
+							
+							var scope = $(this).empty();
+							setTimeout(function () {
+								scope.text(fixWord(scope.html()));
+							  }, 200);
+							
+						});
+						
 						// save htmlContent
 						htmlNode.focus(function(){
 							$(this).addClass('edit');
+							
 							$(this).text($(this).html());
-							//console.log(params.container);
-							/*params.container.find('svg').hide();
-							tinyMCE.execCommand("mceAddControl", true, htmlContainerId);*/
 							
 						}).focusout(function(){
-							//tinyMCE.execCommand("mceRemoveControl", true, htmlContainerId);
 							$(this).html($(this).text());
 							$(this).removeClass('edit');
 							var htmlContent = $(this).html();
@@ -626,20 +681,6 @@ var yellowEdit = {
 								container.elements.html = htmlContent;
 							});
 						});
-						/*$('html').click(function(e){
-							//console.log(tinyMCE.activeEditor.getContent());
-							params.container.find('svg').show();
-							tinyMCE.execCommand("mceRemoveControl", true, htmlContainerId);
-							
-							$.each(yellowEdit.editor.selectedContainers, function(index, container) {
-								container.elements.html = htmlContent;
-							});
-							//params.container.find('.htmlContent').html(params.container.find('.htmlContent').text());
-						});
-						
-						params.container.click(function(e){
-							e.stopPropagation();
-						});*/
 						
 					}
 					
