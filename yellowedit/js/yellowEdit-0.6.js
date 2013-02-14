@@ -1094,6 +1094,11 @@ var yellowEdit = {
 	    }else{
 	    	// hide endpoints
 	    	jsPlumb.hide(container, true);
+	    	
+	    	if((container.elements.c.attr('title') != 'Raphael') && (container.elements.c.attr('title') != '')){
+	    		container.addClass('clickable');
+	    	}
+	    	
 	    	container.click(function(){
 	    		
 	    		//var url = 'http://'+window.location.host+'/'+container.elements.c.attr('title');

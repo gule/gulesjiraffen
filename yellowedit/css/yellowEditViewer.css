@@ -5,8 +5,10 @@
 #canvas							{ position: relative; top: -135px; }
 
 .nodeContainer					{ z-index: 1 !important; cursor: pointer; }
+.nodeContainer.clickable:hover svg a path,
+.nodeContainer.clickable:hover svg path			{ cursor: pointer !important; }
 .nodeContainer svg a path,
-.nodeContainer svg path			{ cursor: pointer !important; }
+.nodeContainer svg path			{ cursor: default !important; }
 
 .htmlContent					{ height: 34px; left: 0; line-height: normal; margin: 8px; overflow: hidden; padding: 5px; position: absolute; text-align: left; top: 0; width: 84px; }
 
