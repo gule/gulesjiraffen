@@ -76,7 +76,7 @@ var yellowEdit = {
 		reloadConnections : function(){
 			yellowEdit.dataModel.connectors = [];
 			var connections = jsPlumb.getAllConnections().jsPlumb_DefaultScope;
-			if(connections.length){
+			if(connections !== undefined){
 				$.each(connections, function(index, value){
 					yellowEdit.dataModel.connectors.push(value);
 				});
@@ -361,6 +361,9 @@ var yellowEdit = {
 						// remove from DOM
 						element.remove();
 						$('#inspectorFormat').hide();
+						
+						//unset selected container
+						yellowEdit.editor.selectedContainers = [];
 						yellowEdit.dataModel.reloadConnections();
 					}
 				});
@@ -949,7 +952,7 @@ var yellowEdit = {
 	        jsPlumb.repaint(container);
 	    },
 	    up = function (dx, dy) {
-	    	
+	    	container.trigger('click');
 	    	jsPlumb.repaint(container);
 	        // restoring state
 	        //this.sizer.attr({opacity: .5}); /* for the ability to move the the text */
@@ -1100,7 +1103,6 @@ var yellowEdit = {
 	    	}
 	    	
 	    	container.click(function(){
-	    		
 	    		//var url = 'http://'+window.location.host+'/'+container.elements.c.attr('title');
 	    		if((container.elements.c.attr('title') != 'Raphael') && (container.elements.c.attr('title') != '')){
 	    			var url = container.elements.c.attr('title');
