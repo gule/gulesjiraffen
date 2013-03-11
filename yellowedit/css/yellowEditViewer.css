@@ -4,7 +4,6 @@
  */
 #canvas							{ position: relative; top: -135px; }
 
-.nodeContainer					{ z-index: 1 !important; cursor: pointer; }
 .nodeContainer.clickable:hover svg a path,
 .nodeContainer.clickable:hover svg path			{ cursor: pointer !important; }
 .nodeContainer svg a path,
