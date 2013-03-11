@@ -4,6 +4,7 @@
  */
 #canvas							{ position: relative; top: -135px; }
 
+.nodeContainer					{ z-index: 1 !important; cursor: default; }
 .nodeContainer.clickable:hover svg a path,
 .nodeContainer.clickable:hover svg path			{ cursor: pointer !important; }
 .nodeContainer svg a path,
@@ -14,3 +15,5 @@
 
 .nodeContainer.swimlane svg,
 .nodeContainer.swimlane			{ width: 100% }
+
+/*._jsPlumb_connector {    z-index: 5; }*/
