@@ -66,6 +66,8 @@ var yellowEdit = {
 		this.editor.menu.duplicateContainerListener();
 		this.editor.menu.reorderElementListener();
 		
+		$('#ye_main').css({'display':'inline-block'});
+		
 		return this;
 	},			
 	

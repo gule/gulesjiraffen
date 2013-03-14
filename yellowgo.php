@@ -17,6 +17,7 @@ if($rad["flowchart"]==""){
 				elements : {
 					canvasElement 	: $('#canvas'),
 					shapesElement	: $('#shapes'),
+					inspectorSave	: $('#ye_main'),
 					inspectorElement: $('#yeparams'),
 					toolBoxElement	: $('#toolBoxContainer'),
 					menu			: $('.navBar'),

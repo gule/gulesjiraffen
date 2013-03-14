@@ -262,7 +262,7 @@ textarea.expandtxta:focus{
 background-image:url(../../gfx/yellow/editor1.png);
 height:32px;
 font-size:12px;
-display:inline-block;
+display:none;
 padding-left:60px;
 width:223px;
 vertical-align:middle;
