@@ -111,7 +111,11 @@ if($rad["flowchart"]==""){
 						$(window).resize(function() {											  
 							scope.elements.canvasElement.css({height : (window.innerHeight-97)+'px'}); 
 						});
-					}else{
+					}
+					else if(typeof printme!= 'undefined' && printme==true){
+					   //Positioning should not be done in print.
+					}
+					else{
 						$('#content10').css({left: $('#versioncomment').position().left});
 						$('#content10').css({top: $('#versioncomment').position().top+$('#versioncomment').height()+15});
 						$('#content10').css({display: 'block'}); //Added 7jan 2013 by LJ
