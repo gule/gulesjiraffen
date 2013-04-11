@@ -1108,7 +1108,7 @@ var yellowEdit = {
 	    		//var url = 'http://'+window.location.host+'/'+container.elements.c.attr('title');
 	    		if((container.elements.c.attr('title') != 'Raphael') && (container.elements.c.attr('title') != '')){
 	    			var url = container.elements.c.attr('title');
-	    			if(confirm('Vil du gå til '+ url +'?'))
+	    			//if(confirm('Vil du gå til '+ url +'?'))
             			window.location = url;
         		}
 	    	});
