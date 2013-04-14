@@ -17,4 +17,6 @@
 .nodeContainer.swimlane svg,
 .nodeContainer.swimlane			{ width: 100% }
 
+#placeholder					{ font-size: 11px !important; }
+
 /*._jsPlumb_connector {    z-index: 5; }*/
