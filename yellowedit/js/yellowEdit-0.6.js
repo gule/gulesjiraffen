@@ -1,4 +1,4 @@
-/*
+/* 
  * yellowEdit - flowCharts
  * Depends on Raphaeljs, jQuery, jsPlumb and Bootstrap 
  * All rights reserved
@@ -90,7 +90,7 @@ var yellowEdit = {
 		init		: function(scope){
 			$.each(scope.editorOptions.elements.shapesElement.children(), function(){
 				$(this).draggable({
-					revert : true
+					revert : true	
 				});
 			});
 			
@@ -110,6 +110,7 @@ var yellowEdit = {
 					yellowEdit.editor.selecterContainers = []; 		
 					yellowEdit.editor.selectedContainers.push(container);
 					if(shapeType == 'htmlbox'){
+						container.trigger('click');
 						container.elements.html.trigger('focus');
 					}else{
 						container.trigger('click');
