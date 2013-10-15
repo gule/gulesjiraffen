@@ -145,7 +145,7 @@ if($rad["flowchart"]==""){
 					lineWidth			: 1,
 					strokeStyle			: '#666',
 					outlineColor		: '#FFFFFF',
-					outlineWidth		: 1
+					outlineWidth		: 2
 				},
 				overlay	  : {
 					width				: 7,
