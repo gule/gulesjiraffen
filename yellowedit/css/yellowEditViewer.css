@@ -8,6 +8,10 @@
 .nodeContainer.clickable:hover svg text,
 .nodeContainer.clickable:hover svg a path,
 .nodeContainer.clickable:hover svg path			{ cursor: pointer !important; }
+
+.nodeContainer.clickable img { width: 15px; position:absolute; z-index: 9; }
+.nodeContainer.clickable:hover img { width: 17px; }
+
 .nodeContainer svg a path,
 .nodeContainer svg path			{ cursor: default !important; }
 

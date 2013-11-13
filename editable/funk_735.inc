@@ -12,7 +12,7 @@
 			<span id="yeparams" style="display:none;">     
 				<span>
 					<strong><?=xpr(1045)?>:</strong> 
-					<textarea id="htmlContent" name="htmlContent" class="expandtxta"></textarea>
+					<textarea id="htmlContent" name="htmlContent" class="expandtxta" title="<?=xpr(1473)?> ></textarea>
 					
 					<span id="ywbwsel">
 						<input name="textColor" type="hidden" id="textColorValue" value=""/>
@@ -44,7 +44,7 @@
 					foreach($txtsizes as $size){               
   						?><a href="javascript:txtzeindicator(<?=$size?>);" class="textSizePicker<?
 							if($size == 10){ echo ' activesize'; }  //Default value
-						?>" title="Skriftstørrelse" id="skriftz<?=$size?>" val="<?=$size?>"></a><?
+						?>" title="<?=xpr(1467)?>" id="skriftz<?=$size?>" val="<?=$size?>"></a><?
 					}
 				?></span> 
 
@@ -56,7 +56,7 @@
 
 					<span>
 						<strong><?=xpr(1046)?>:</strong> 
-						<input id="containerLink" type="text" name="hyperlink"  />
+						<input id="containerLink" type="text" title="<?=xpr(1052)?> name="hyperlink"  />
 						<a href="javascript:ajaxget('linkbrowser','containerLink','edit','adoc');" id="ye_browse" title="<?=xpr(1052)?>"></a>
 					</span>
 					<span>
@@ -85,7 +85,7 @@
 					</span>
 				  
 				  
-				<input type="button" id="ye_saveboxc" class="saveContainer" value="<?=xpr(1048)?>" />
+				<input type="button" id="ye_saveboxc" class="saveContainer" title="<?=xpr(1468)?>" value="<?=xpr(1048)?>" />
 				  
 				<span class="deleteContainer trash" title="<?=xpr(1049)?>"></span>  
 			</span><?  

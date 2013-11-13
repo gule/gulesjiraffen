@@ -89,9 +89,9 @@ if (typeof JSON.decycle !== 'function') {
                     nu = {};
                     for (name in value) {
                         if (Object.prototype.hasOwnProperty.call(value, name)) {
-                        	
-                            nu[name] = derez(value[name],
-                                path + '[' + JSON.stringify(name) + ']');
+                        	//if(typeof 	value === '[object Array]'){
+                        		nu[name] = derez(value[name],path + '[' + JSON.stringify(name) + ']');
+                        	//}
                         }
                     }
                 }

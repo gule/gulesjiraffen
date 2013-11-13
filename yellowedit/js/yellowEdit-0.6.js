@@ -512,12 +512,7 @@ var yellowEdit = {
 				
 				// etter ferdig lasta
 			
-				
-				//reorder('jsPlumb_1_134', 'bottom');
-				
-				
-				
-				
+				//gå gjennom klikkbare element og prepend linksymbol-tag
 				
 				
 			},
@@ -1103,6 +1098,7 @@ var yellowEdit = {
 	    	
 	    	if((container.elements.c.attr('title') != 'Raphael') && (container.elements.c.attr('title') != '')){
 	    		container.addClass('clickable');
+				container.prepend('<img src="yellowedit/img/link.png">');
 	    	}
 	    	
 	    	container.click(function(){

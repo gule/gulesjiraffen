@@ -125,7 +125,7 @@ if($rad["flowchart"]==""){
 						});
 					}
 
-					$('#yeparams').live('change', function(){
+					$('#yeparams').on('change', function(){
 						$('.saveContainer').prop('disabled', false);	
 					});
 					//$(document)[0].oncontextmenu = function() {return false;}  
@@ -225,33 +225,33 @@ if($rad["flowchart"]==""){
 		<a id="limitwidth" title="Visningsbredde KSS" onClick="alert('Denne streken indikerer bredden i dokumentet i KSS.Tegner du til høyre for denne vil det kunne bli scroll i skjermbildet');"></a>
 		<div id="ye_top">
 			<span id="ye_main">
-				<a id="saveWorkflow" href="#"><?=xpr(1043)?></a>
+				<a id="saveWorkflow" href="#" title="<?=xpr(1466)?>"><?=xpr(1043)?></a>
 				<!--  <input type="hidden" id="autosave" checked="checked" /> <span title="<?=xpr(1053)?>"><?=xpr(1044)?></span>-->
 			</span>
 			<? yellowcustom(2); ?>
 		</div>
         
-		<a id="snapper" class="snap1" href="#" title="Magnetisme"></a>	
-		<a id="yeduplo" href="#" title="Kopier element"></a>			
+		<a id="snapper" class="snap1" href="#" title="<?=xpr(1452)?>"></a>	
+		<a id="yeduplo" href="#" title="<?=xpr(1453)?>"></a>			
 		
 		<span id="ye_updown">
-			<a href="#" id="ye_moveup" title="Flytt øverst"></a>
-			<a href="#" id="ye_movedown" title="Flytt nederst"></a>
+			<a href="#" id="ye_moveup" title="<?=xpr(1454)?>"></a>
+			<a href="#" id="ye_movedown" title="<?=xpr(1455)?>"></a>
 		</span>	
         	
 		<div class="toolBoxContainer shapes">
 			<ul id="shapes">
-				<li id="rect"><span class="hidden">Firkant</span></li>
+				<li id="rect" title="<?=xpr(1456)?>"><span class="hidden">Firkant</span></li>
 				<!--<li id="circle"><span class="hidden">Sirkel</span></li>-->
-				<li id="circuit"><span class="hidden">Bane</span></li>
-				<li id="cylinder"><span class="hidden">Sylinder</span></li>
-				<li id="db"><span class="hidden">database</span></li>
-				<li id="rectvariant_1"><span class="hidden">firkantvariant</span></li>
-				<li id="rectvariant_2"><span class="hidden">firkantvariant</span></li>
-				<li id="diamond"><span class="hidden">diamant</span></li>
-		        <li id="htmlbox"><span class="hidden">htmlboks</span></li>
-		        <li id="man"><span class="hidden">man</span></li>
-		        <li id="swimlane"><span class="hidden">swimlane</span></li>
+				<li id="circuit" title="<?=xpr(1457)?>"><span class="hidden">Bane</span></li>
+				<li id="cylinder" title="<?=xpr(1458)?>"><span class="hidden">Sylinder</span></li>
+				<li id="db" title="<?=xpr(1459)?>"><span class="hidden">database</span></li>
+				<li id="rectvariant_1" title="<?=xpr(1460)?>"><span class="hidden">firkantvariant</span></li>
+				<li id="rectvariant_2" title="<?=xpr(1461)?>"><span class="hidden">firkantvariant</span></li>
+				<li id="diamond" title="<?=xpr(1462)?>"><span class="hidden">diamant</span></li>
+		        <li id="htmlbox" title="<?=xpr(1463)?>"><span class="hidden">htmlboks</span></li>
+		        <li id="man" title="<?=xpr(1464)?>"><span class="hidden">man</span></li>
+		        <li id="swimlane" title="<?=xpr(1465)?>"><span class="hidden">swimlane</span></li>
 			</ul>
 			<ul id="tools">
 				
