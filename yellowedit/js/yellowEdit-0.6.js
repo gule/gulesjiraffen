@@ -11,6 +11,14 @@ var yellowEdit = {
 				
 	jsPlumbLoaded 	: false,
 	viewMode		: false,
+	canvas			: {
+		dimensions : {
+			height: 0
+		},
+		setHeight : function(){
+			yellowEdit.editorOptions.elements.canvasElement.height(yellowEdit.canvas.dimensions.height);
+		}
+	},
 	jsPlumbDefaults	: {
 		Connector		: ["Flowchart",{stub: 15} ],
 		MaxConnections	: 5,
@@ -55,12 +63,16 @@ var yellowEdit = {
 			this.editor.shapes.hide();
 			this.editor.menu.hide();
 		}
+		
+		// run installation dependent functions
 		options.misc();
 		
 		if(!$.isEmptyObject(dataModel)){
 			yellowEdit.editor.menu.loadDataModel(dataModel);
 		}
 		
+		// adjust canvas size
+		this.canvas.setHeight();
 		// listeners
 		this.editor.menu.deleteContainerListener();
 		this.editor.menu.duplicateContainerListener();
@@ -773,7 +785,7 @@ var yellowEdit = {
 		currentAnchors.push(jsPlumb.addEndpoint(container, {anchor:['TopCenter']},	 endpointOptions ));  
 		currentAnchors.push(jsPlumb.addEndpoint(container, {anchor:['BottomCenter']},endpointOptions ));  
 		
-		if(shape == 'swimlane'){
+		if((shape == 'swimlane') || (shape == 'swimlaneVertical')){
 			$.each(currentAnchors, function(index, value){
 				value.setVisible(false);
 			});
@@ -916,6 +928,34 @@ var yellowEdit = {
 					initParams	: element,
 					misc		: function(params){
 						params.container.css({'left': '0px'}).addClass('swimlane');
+						params.container.elements.t.attr({'text-anchor':'start'});
+						//console.log(params.container.elements.c);
+						//params.container.elements.c.paper.top.attr({'y':'20px'});
+						
+						
+					}
+				});			
+				break;
+			case 'swimlaneVertical':
+				
+				$.extend(attrs, {'stroke-opacity': '0.1', 'stroke-width': 5, fill: '#000000'});
+				
+				container = yellowEdit.editor.shapes.container.create({
+					container 	: container,
+					path		: 'M2916.799,5.771c-4.369,0-2828.529,0-2828.529,0H55.164c0,0-37.258-0.01-44.143,0c-6.886,0.01-6.201-2.604,0-2.604c6.2,0,10.089,0,10.089,0s2889.805,0.011,2895.689,0C2922.678,3.156,2921.163,5.771,2916.799,5.771z',
+					//path		: 'M2916.799,17.771c-4.369,0-2828.529,0-2828.529,0H55.164c0,0-37.258-0.01-44.143,0c-6.886,0.01-6.201-2.604,0-2.604c6.2,0,10.089,0,10.089,0s2889.805,0.011,2895.689,0C2922.678,15.156,2921.163,17.771,2916.799,17.771z',
+					//path		: 'M8,11C8,11,498.72,11,1000,11',
+					attrs		: attrs,
+					width		: 700,
+					height		: 24,
+					textOffset	: {
+						'x'	: '70', 	
+						'y'	: '1.5' 	
+					},
+					noResize	: true,
+					initParams	: element,
+					misc		: function(params){
+						params.container.css({'top': '0px'}).addClass('swimlane');
 						params.container.elements.t.attr({'text-anchor':'start'});
 						//console.log(params.container.elements.c);
 						//params.container.elements.c.paper.top.attr({'y':'20px'});
@@ -1096,6 +1136,14 @@ var yellowEdit = {
 	    	// hide endpoints
 	    	jsPlumb.hide(container, true);
 	    	
+	    	// calculate and expand canvas' height
+	    	var bottomContainer = container.position().top+container.height();
+	    	if(bottomContainer > yellowEdit.canvas.dimensions.height){
+	    		console.log(bottomContainer);
+	    		yellowEdit.canvas.dimensions.height
+	    		var margin = 30; // add extra height
+	    		yellowEdit.canvas.dimensions.height = bottomContainer+margin;
+	    	}
 	    	if((container.elements.c.attr('title') != 'Raphael') && (container.elements.c.attr('title') != '')){
 	    		container.addClass('clickable');
 				container.prepend('<img src="yellowedit/img/link.png">');

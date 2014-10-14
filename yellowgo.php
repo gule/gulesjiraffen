@@ -252,6 +252,7 @@ if($rad["flowchart"]==""){
 		        <li id="htmlbox" title="<?=xpr(1463)?>"><span class="hidden">htmlboks</span></li>
 		        <li id="man" title="<?=xpr(1464)?>"><span class="hidden">man</span></li>
 		        <li id="swimlane" title="<?=xpr(1465)?>"><span class="hidden">swimlane</span></li>
+		        <li id="swimlaneVertical" title="<?=xpr(1465)?>"><span class="hidden">swimlane</span></li>
 			</ul>
 			<ul id="tools">
 				
