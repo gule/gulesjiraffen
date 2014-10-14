@@ -15,7 +15,11 @@ if($rad["flowchart"]==""){
 		//$.getJSON(dataModel, function(data){
 				yellowEdit.init({
 				elements : {
-					canvasElement 	: $('#canvas'),
+					canvasElement  : $('#canvas<?
+                                        if($_GET["modul"]=="cdoc"){
+                                          echo $rad["ID"];  
+                                        }
+                                        ?>'),
 					shapesElement	: $('#shapes'),
 					inspectorSave	: $('#ye_main'),
 					inspectorElement: $('#yeparams'),
@@ -32,7 +36,7 @@ if($rad["flowchart"]==""){
 							$('.instantColorPicker').unbind();
 							$('.instantColorPicker').click(function(e){
 								e.preventDefault();
-								var color = $(this).css('background-color');
+								var color = $(this).css('background-color');    
 								element.elements.c.attr({fill: color});
 								$('#yecolor').css('background-color', color);
 								$('#colorPickerValue').val(color);
@@ -116,6 +120,9 @@ if($rad["flowchart"]==""){
 					   //Positioning should not be done in print.
 					}
 					else{
+					    //$('#content10').css({left: $('#versioncomment<?=$rad["mother"]?>').position().left});
+                        //$('#content10').css({top: $('#versioncomment<?=$rad["mother"]?>').position().top+$('#versioncomment<?=$rad["mother"]?>').height()+15});
+					    
 						$('#content10').css({left: $('#versioncomment').position().left});
 						$('#content10').css({top: $('#versioncomment').position().top+$('#versioncomment').height()+15});
 						$('#content10').css({display: 'block'}); //Added 7jan 2013 by LJ
@@ -260,7 +267,11 @@ if($rad["flowchart"]==""){
 		</div>	
 			
 	<?}?>
-<div id="canvas"></div>
+	
+<div class="ycanvas" id="canvas<?
+    if($_GET["modul"]=="cdoc"){
+        echo $rad["ID"];   
+    }?>"></div>
 
 	
 <script type="text/javascript">
