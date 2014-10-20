@@ -72,7 +72,9 @@ var yellowEdit = {
 		}
 		
 		// adjust canvas size
-		this.canvas.setHeight();
+		if(yellowEdit.viewMode){
+			this.canvas.setHeight();
+		}
 		// listeners
 		this.editor.menu.deleteContainerListener();
 		this.editor.menu.duplicateContainerListener();
@@ -410,7 +412,7 @@ var yellowEdit = {
 				});
 			},
 			reorderElement : function (elementId, order){
-				var elements = $('#canvas').children();
+				var elements = yellowEdit.editorOptions.elements.canvas.children();
 				$.each(elements, function(index, value){
 					if($(value).attr('id') == elementId){
 						switch(order){
@@ -420,7 +422,7 @@ var yellowEdit = {
 								
 								var elementGroup = $(value);
 								$.merge(elementGroup, $(value).nextUntil('._jsPlumb_connector').slice(0,4));
-								elementGroup.detach().appendTo($('#canvas'));
+								elementGroup.detach().appendTo(yellowEdit.editorOptions.elements.canvas);
 								
 								$.each(yellowEdit.dataModel.containers, function(index, value){
 									if(value.attr('id') == elementId){
@@ -434,7 +436,7 @@ var yellowEdit = {
 							case 'bottom':
 								var elementGroup = $(value);
 								$.merge(elementGroup, $(value).nextUntil('._jsPlumb_connector').slice(0,4));
-								elementGroup.detach().prependTo($('#canvas'));
+								elementGroup.detach().prependTo(yellowEdit.editorOptions.elements.canvas);
 								
 								$.each(yellowEdit.dataModel.containers, function(index, value){
 									if(value.attr('id') == elementId){
@@ -506,7 +508,7 @@ var yellowEdit = {
 				$.each(data.containers, function(index, value){
 					yellowEdit.container(value.options.shape, value);
 				});
-				
+				//console.log(data);debugger;
 				// loop connections							
 				$.each(data.connectors, function(index, value){
 					var start 	= '';
@@ -725,6 +727,7 @@ var yellowEdit = {
 	container 	: function(shape, element, copy){
 		var options = element.options;
 
+		
 		// add it to DOM
 		var container = jQuery('<div>',{
 		//	"id"		: yellowEdit.dataModel.containers.length+1,
@@ -734,12 +737,14 @@ var yellowEdit = {
 		
 		var containerOffset = 0;
 		
-		if(options == undefined){
-			container.attr({'id' : yellowEdit.dataModel.containers.length+1});
+		if(typeof options == "undefined"){
+			container.attr({'id' : yellowEdit.editorOptions.elements.canvasElement.attr('id') + yellowEdit.dataModel.containers.length + 1});
 		}else{
 			if(copy){
 				container.attr({'id' : options.identity+(yellowEdit.dataModel.containers.length+1)});
 				containerOffset = 30;
+			}else if(typeof options.identity == "undefined"){
+				container.attr({'id' : yellowEdit.editorOptions.elements.canvasElement.attr('id') + '_' + yellowEdit.dataModel.containers.length + 1});
 			}else{
 				container.attr({'id' : options.identity});
 			}
@@ -1061,7 +1066,6 @@ var yellowEdit = {
 	    	jsPlumb.repaint(container);
 	    };
 	    
-	    
         jsPlumb.repaint(container);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   				  
 		// add to datamodel
@@ -1128,7 +1132,7 @@ var yellowEdit = {
 				container.options.position.left = container.css('left');
 				container.options.position.top 	= container.css('top');
 				
-				jsPlumb.setDraggable(container, false);
+				jsPlumb.setDraggable(container, true);
 				yellowEdit.editorOptions.elements.inspectorElement.show();
 			});
 		    
@@ -1139,7 +1143,7 @@ var yellowEdit = {
 	    	// calculate and expand canvas' height
 	    	var bottomContainer = container.position().top+container.height();
 	    	if(bottomContainer > yellowEdit.canvas.dimensions.height){
-	    		console.log(bottomContainer);
+	    		//console.log(bottomContainer);
 	    		yellowEdit.canvas.dimensions.height
 	    		var margin = 30; // add extra height
 	    		yellowEdit.canvas.dimensions.height = bottomContainer+margin;
