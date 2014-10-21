@@ -514,9 +514,17 @@ var yellowEdit = {
 					var start 	= '';
 					var stop	= '';
 					
+					if(yellowEdit.viewMode){
+						var source = yellowEdit.editorOptions.yeuid+"_"+value.sourceId;
+						var target = yellowEdit.editorOptions.yeuid+"_"+value.targetId;
+					}else{
+						var source = value.sourceId;
+						var target = value.targetId;
+					}
+					
 					jsPlumb.connect({
-						source	: value.sourceId, 
-						target	: value.targetId,
+						source	: source, 
+						target	: target,
 						anchors	: [value.endpoint.start, value.endpoint.stop],
 						endpoint: ["Blank", "Blank"],
 						overlays: [[ "PlainArrow", yellowEdit.editorOptions.overlay ]]
@@ -727,7 +735,6 @@ var yellowEdit = {
 	container 	: function(shape, element, copy){
 		var options = element.options;
 
-		
 		// add it to DOM
 		var container = jQuery('<div>',{
 		//	"id"		: yellowEdit.dataModel.containers.length+1,
@@ -746,13 +753,20 @@ var yellowEdit = {
 			}else if(typeof options.identity == "undefined"){
 				container.attr({'id' : yellowEdit.editorOptions.elements.canvasElement.attr('id') + '_' + yellowEdit.dataModel.containers.length + 1});
 			}else{
-				container.attr({'id' : options.identity});
+				//container.attr({'id' : options.identity});
+				container.attr({'id' : yellowEdit.editorOptions.yeuid+'_'+options.identity});
 			}
+		}
+		
+		var inspectorOffset = 0;
+		
+		if(yellowEdit.viewMode){
+			inspectorOffset = yellowEdit.editorOptions.inspectorOffset;
 		}
 
 		container.appendTo(yellowEdit.editorOptions.elements.canvasElement).css({
 			'left' : (parseInt(options.position.left)+containerOffset)+'px',
-			'top' : (parseInt(options.position.top)+containerOffset)+'px'
+			'top' : (parseInt(options.position.top)+containerOffset)- inspectorOffset + 'px'
 		});
 		
 		// make draggable

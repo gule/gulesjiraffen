@@ -2,7 +2,7 @@
 /* CANVAS
  * compensate for toolbar offset in edit mode.
  */
-.ycanvas							{ position: relative; top: -135px; }
+.ycanvas							{ position: relative; top: -10px; }
 
 .nodeContainer					{ z-index: 1 !important; cursor: default; }
 .nodeContainer.clickable:hover svg text,

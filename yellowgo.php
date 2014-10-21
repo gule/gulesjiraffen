@@ -9,20 +9,21 @@ if($rad["flowchart"]==""){
 
     jQuery(document).ready(function(){
         var dataModel = <?=$dataModel?>;
-        
+        var yeuid = '<?=intval($rad["ID"])?>';
     
-        $.getJSON('ajaxget.php?modul=adoc&type=getflow&id=<?=$rad["ID"]?>', function(dataModel){
+        $.getJSON('ajaxget.php?modul=adoc&type=getflow&id='+yeuid, function(dataModel){
         //$.getJSON(dataModel, function(data){
-                var editor = yellowEdit.init({
+            var editor = yellowEdit.init({
+                yeuid           : yeuid,
+                inspectorOffset : 90,                           
                 elements : {
-                    canvasElement   : $('#canvas<?print $rad["ID"];?>'),
+                    canvasElement   : $('#canvas'+yeuid),
                     shapesElement   : $('#shapes'),
                     inspectorSave   : $('#ye_main'),
                     inspectorElement: $('#yeparams'),
                     toolBoxElement  : $('#toolBoxContainer'),
                     menu            : $('.navBar'),
                     inspector       : {
-                        
                         deleteContainer     : '.deleteContainer',
                         duplicateContainer  : '#yeduplo',
                         containerToTop      : '#ye_moveup',
