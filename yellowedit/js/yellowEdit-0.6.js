@@ -754,7 +754,11 @@ var yellowEdit = {
 				container.attr({'id' : yellowEdit.editorOptions.elements.canvasElement.attr('id') + '_' + yellowEdit.dataModel.containers.length + 1});
 			}else{
 				//container.attr({'id' : options.identity});
-				container.attr({'id' : yellowEdit.editorOptions.yeuid+'_'+options.identity});
+				if(yellowEdit.viewMode){
+					container.attr({'id' : yellowEdit.editorOptions.yeuid+'_'+options.identity});
+				}else{
+					container.attr({'id' : options.identity});
+				}
 			}
 		}
 		

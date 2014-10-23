@@ -207,7 +207,7 @@ textarea.expandtxta:focus{
 	background-image:url(../../gfx/stat2012/70procent.png);
 	padding:2px;
 	border:1px solid #FFF;
-	width: 105px;
+	width: 120px;
 }
 
 
@@ -226,14 +226,14 @@ textarea.expandtxta:focus{
 
 /* TRANSPARENT added 30 jan 2013 */
 #yepalette #ye_transcolor{
-	width:103px;
+	width:120px;
 	height:15px;
 	background-image:url(../../gfx/yellow/trans.png);
 	border:1px solid #333;
 }
 
 #yepalette #ye_transcolor:hover{
-	width:103px;
+	/*width:103px;*/
 	height:15px;
 	background-image:url(../../gfx/yellow/trans.png);
 	border:1px solid #900;
